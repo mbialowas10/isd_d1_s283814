@@ -32,7 +32,7 @@ class Course():
         return self.__name
 
     @property
-    def department(self) -> int:
+    def department(self) -> Department:
         return self.__department
 
     @property
@@ -50,7 +50,7 @@ class Course():
 
     def __str__(self) -> str:
         return (f"Course: {self.__name.title()}\n"
-                f"Department: {self.__department.name.replace('_','').title()}\n"
+                f"Department: {self.__department.name.replace('_', ' ').title()} \n"
                 f"Credit Hours: {self.__credit_hours}")
     
 
