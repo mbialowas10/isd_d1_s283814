@@ -1,8 +1,13 @@
+"""This module defines tests for the Department enumeration."""
+
 import unittest
 from course.department import Department
 
+__author__ = "Michael Bialowas <mbialowas@rrc.ca>"
+__version__ = "1.0.0"
+
 class TestDepartment(unittest.TestCase):
-    """Define some tests for our enumeration values"""
+    """Represents departments within a post-secondary institution."""
     #Arrange, Act, Assert
     
     def test_enumeration_values_initialized(self):  

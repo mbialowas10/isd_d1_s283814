@@ -5,3 +5,7 @@ This project will be developed over the course of several lectures.  Each lectur
 ## Author
 
 COMP-2327 Faculty
+
+### Heading 3
+
+
