@@ -21,19 +21,19 @@ class TestInit(unittest.TestCase):
         actual = str(context.exception)
         self.assertEqual(expected, actual)
 
-    # def test_has_only_whitespace_characters(self) -> None:
-    #     #arrange
-    #     course_name = "intermediate software development"
-    #     department = Department.COMPUTER_SCIENCE
-    #     credit_hours=90
+    def test_has_only_whitespace_characters(self) -> None:
+        #arrange
+        course_name = " "
+        department = Department.COMPUTER_SCIENCE
+        credit_hours=90
 
-    #     with self.assertRaises(ValueError) as context:
-    #         course_name = Course(course_name, department, credit_hours)
+        with self.assertRaises(ValueError) as context:
+            course_name = Course(course_name, department, credit_hours)
 
-    #     #Assert
-    #     expected = "name cannot be an empty string"
-    #     actual = str(context.exception)
-    #     self.assertEqual(expected, actual)
+        #Assert
+        expected = "name cannot be an empty string"
+        actual = str(context.exception)
+        self.assertEqual(expected, actual)
 
     def test_credit_hours_zero(self) -> None:
         #arrange

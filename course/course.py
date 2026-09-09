@@ -38,7 +38,7 @@ class Course():
         self.__name = name.strip()
         self.__department = department
         # line 24 is redundant bc line 19 is already treating
-        # self.__credit_hours = credit_hours
+        self.__credit_hours = credit_hours
     @property
     def name(self) -> str:
         """Gets the name of the course.
@@ -59,13 +59,13 @@ class Course():
 
     @property
     def credit_hours(self) -> int:
-         """Gets the number of credit hours for this course.
+        """Gets the number of credit hours for this course.
 
         Credit hours typically correlate with the number of instructional
         hours of a course.
 
         Returns:
-            int: The number of credit hours for this course.
+        int: The number of credit hours for this course.
         """
         return self.__credit_hours
 
