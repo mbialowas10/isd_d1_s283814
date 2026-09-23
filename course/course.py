@@ -3,15 +3,25 @@
 __author__ = "Michael Bialowas"
 __version__ = "1.0.0"
 
+from abc import ABC, abstractmethod
 from course.department import Department
+from course.student import Student
 
-class Course():
+
+class Course(ABC):
     """Represent a course at an education institution"""
 
+    ENROLLMENT_LIMIT = 30
+    """"The nunmber of student in the course"""
+
+    
     def __init__(self, 
                  name: str,
                  department: Department,
                  credit_hours: int):
+
+        self.__students = []
+
         """Initializes a new instance of the Course class.
 
         Args:
@@ -85,7 +95,23 @@ class Course():
             raise ValueError("credit hours must be a value greater than zero.")
         self.__credit_hours = credit_hours
 
+    @property
+    def students(self) -> list[Student]:
+        """get us the students enrolled in a course
+        
+            Returns:
+                list[Student] : The students enrolled in the course
+        """
+        return self.__students   
 
+    @abstractmethod
+    def enroll_student(self, student: Student) -> None:
+        """Enrolls a student in the course
+            
+            Args:
+             student (Student) : The student being enrolled in the course. 
+        """
+        pass
 
     def __str__(self) -> str:
         """Returns the "informal" or nicely printable string 
