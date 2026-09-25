@@ -7,7 +7,7 @@ from course.student import Student
 __author__ = "ACE Faculty <mbialowas@rrc.ca>"
 __version__ = "1.0.0"
 
-class LectureCourse(Course, Object):
+class LectureCourse(Course, object):
     """Represent a course that involves lectures"""
 
     def __init__(self,
