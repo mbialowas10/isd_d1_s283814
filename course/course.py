@@ -122,7 +122,7 @@ class Course(ABC):
                 representation of the object.
         """
         return (f"Course: {self.__name.title()}\n"
-                f"Department: {self.__department.name.replace('_', ' ').title()} \n"
+                f"Department: {self.__department.name.replace('_', ' ').title()}\n"
                 f"Credit Hours: {self.__credit_hours}")
     
 

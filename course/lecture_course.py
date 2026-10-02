@@ -57,7 +57,7 @@ class LectureCourse(Course):
         if len(self.students) >= Course.ENROLLMENT_LIMIT + buffer:
             raise ValueError("Cannot enroll student; course at capacity")
 
-        self.__students.append(student)
+        self.students.append(student)
 
     def __str__(self) -> str:
         """ Returns the string representation of the object
@@ -65,6 +65,6 @@ class LectureCourse(Course):
             Returns:
                 str: the string representation of the object
         """
-        return (f"{super().str()}\n"
+        return (f"{super().__str__()}\n"
                 f"Lecture Hall: {self.lecture_hall}")
         
