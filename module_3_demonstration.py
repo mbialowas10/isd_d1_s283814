@@ -5,6 +5,8 @@ from decimal import Decimal
 from student.student import Student
 from student.college_student import CollegeStudent
 from patterns.singleton.student_number_generator import StudentNumberGenerator
+from student.volunteer_decorator import VolunteerDecorator
+from student.student_council_decorator import StudentCouncilDecorator
 
 __author__ = "COMP-2327 Faculty"
 __version__ = "1.0.0"
@@ -50,6 +52,18 @@ def main():
     for student in students:
         # Student numbers are unique
         print(f"{student}")
+
+
+    student = students[0]
+    print(student.get_grade_point_average())
+
+    #Decorate the student with volunteer
+    # volunteer_student = VolunteerDecorator(student)
+    # print(volunteer_student.get_grade_point_average())
+
+    #decorate the student with council
+    council_student = StudentCouncilDecorator(student)
+    print(council_student.get_grade_point_average()) 
 
 if __name__ == "__main__":
     main()

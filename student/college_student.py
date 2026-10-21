@@ -2,11 +2,12 @@
 
 from decimal import Decimal
 from patterns.singleton.student_number_generator import StudentNumberGenerator
+from student.student import Student
 
 __author__ = "COMP-2327 Faculty"
 __version__ = "1.0.0"
 
-class CollegeStudent:
+class CollegeStudent(Student):
     """Represents a college student."""
 
     def __init__(self, 
