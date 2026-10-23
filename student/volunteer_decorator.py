@@ -2,7 +2,7 @@
 
 from decimal import Decimal
 from student.student import Student
-from student.student_decorator import StudentDecorator
+from patterns.decorator.student_decorator import StudentDecorator
 
 __author__ = "COMP-2327 Faculty"
 __version__ = "1.0.0"
@@ -10,7 +10,7 @@ __version__ = "1.0.0"
 class VolunteerDecorator(StudentDecorator):
 
     """Represent a decorator object for a student"""
-    def __init__(self,student:Student)-> None:
+    def __init__(self, student:Student)-> None:
         """Initializes a new instance of the Volunteer decorator class
         
             Args:
@@ -27,7 +27,13 @@ class VolunteerDecorator(StudentDecorator):
         """
         GRADE_POINT_AVERAGE_INCREASE = Decimal('.25')
 
-        return min((super().get_point_grade_average() + GRADE_POINT_AVERAGE_INCREASE), Decimal('4.5'))
+        
+        return min(
+            
+                super().get_grade_point_average() + GRADE_POINT_AVERAGE_INCREASE, 
+                Decimal('4.5')
+            )
+
 
         
 

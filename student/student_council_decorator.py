@@ -2,7 +2,7 @@
 
 from decimal import Decimal
 from student.student import Student
-from student.student_decorator import StudentDecorator
+from patterns.decorator.student_decorator import StudentDecorator
 
 __author__ = "COMP-2327 Faculty"
 __version__ = "1.0.0"
@@ -32,8 +32,9 @@ class StudentCouncilDecorator(StudentDecorator):
             Decimal('2.40') : Decimal('.04')
         }
         increase = 0 
+
         for average in increases:
-            if increase == 0 and self.get_grade_point_average >= average:
+            if increase == 0 and super().get_grade_point_average() >= average:
                 increase = increases[average]
                 
-        return min(self.get_grade_point_average + increase, Decimal('4.5'))
+        return min(super().get_grade_point_average() + increase, Decimal('4.5'))
