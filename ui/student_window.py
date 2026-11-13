@@ -2,6 +2,7 @@
 
 from PySide6.QtCore import Slot
 from student.college_student import CollegeStudent
+from ui.student_grade_dialog import StudentGradeDialog
 
 from ui.base.main_window import MainWindow
 from decimal import Decimal
@@ -27,7 +28,28 @@ class StudentWindow(MainWindow):
         self._previous_button.clicked.connect(self.__on_previous_button_clicked)
         self._next_button.clicked.connect(self.__on_next_button_clicked)
         self._last_button.clicked.connect(self.__on_last_button_clicked)
+
+        # edit button leads to student grade dialog
+        self._edit_button.clicked.connect(self.__on_edit_button_clicked)
         # end region event handlers
+
+    @Slot()
+    def __on_edit_button_clicked(self) -> None:
+        """Handles the on edit clicked event"""
+        dialog = StudentGradeDialog(self.__students[self.__current_index])
+        dialog.grade_updated.connect(self.__on_grade_updated)
+        dialog.exec()
+
+
+    def __on_grade_updated(self,grade: Decimal)-> None:
+        """Handle the grade_updated event of the dialog window
+        
+            Args:
+                grade (Decimal): the updated grade
+        """
+        student = self.__students[self.__current_index]
+        student.set_grade_point_average(grade)
+        self.__initialize_widgets()
 
     @Slot()
     def __on_first_button_clicked(self) -> None:
